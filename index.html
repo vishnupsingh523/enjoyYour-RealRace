@@ -7,19 +7,33 @@
     <link rel="stylesheet" href="Css_files/index.css">
 </head>
 <body>
-    <div class="main">
+    <img src="images/wallpaper1.jpg" id="image">
+    <header>
+        <div class="main">
 
-        <h1>enjoyYour-realRace</h1>
-
-        <button onclick="playAnimation()">
-            Let's start the GAME
-            <i class="arrow right"></i>
-        </button>
-    </div>
-  
-    <!-- Script files are added here:   -->
-    <script src="jsFile/jquery.js"></script>
-    <script src="jsFile/index.js"></script>
-       
+            <h1>enjoyYour-realRace</h1>
+    
+            <a href="car/car.html" onclick="playAnimation()">
+                Let's start the GAME &rarr;
+            </a>
+    
+        </div>
+    </header>
+    
+    <script src="jquery.js"></script>
+    <script>
+        
+        function playAnimation(){
+            document.querySelector("h1").style.animationPlayState = "running";
+            $(".main").fadeOut(2000);
+           var it =  window.setTimeout(changeColor,2000);
+            
+        }
+        function changeColor(){
+            document.getElementsByTagName("header").style.backgroundColor = "rgb(240, 168, 140)";
+            window.clearTimeout(it);
+        }
+    </script>
+    
 </body>
 </html>
