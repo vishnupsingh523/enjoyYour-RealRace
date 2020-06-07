@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Race Started</title>
     <style>
+        body{
+            background-color: rgba(150, 148, 147, 0.521);
+        }
         .container{
             background-color: coral;
-            height: 300px;
-            padding: 400px 0 0 200px;
+            height: 400px;
+            margin-top: 200px;
+            margin-left: 400px;
+            margin-right: 400px;
         }
-        .container .box{
+        .container #box{
             background-color: chartreuse;
             height: 50px;
             width: 50px;
@@ -20,15 +25,58 @@
 </head>
 <body>
     
-    <div class="container">
-        <div class="box"></div>
+    <div class="container" id="outer">
+        <div id="box"></div>
     </div>
 </body>
 
 <script>
-    document.addEventListener('keypress',doit);
-    function doit(key){
-        
+    const box = document.getElementById("outer");
+    document.addEventListener('keypress',onpress);
+    var topbottom = 0;
+    var leftright= 0;
+    var difference = 5;
+    function onpress(key){
+        if(key.code == "KeyA")
+        {
+            leftright-= difference;
+            if(leftright>=0){
+            box.style.paddingLeft = `${leftright}px`;
+            }
+            else{
+                leftright = 0;
+            }
+        }
+        else if(key.code == "KeyD")
+        {
+            leftright+= difference;
+            if(leftright>=0){
+            box.style.paddingLeft = `${leftright}px`;
+            }
+            else{
+                leftright = 0;
+            }
+        }
+        else if(key.code == "KeyW")
+        {
+            topbottom= topbottom - difference;
+            if(topbottom>=0){
+            box.style.paddingTop = `${topbottom}px`;
+            }
+            else{
+                topbottom = 0;
+            }
+        }
+        else if(key.code == "KeyS")
+        {
+            topbottom+= difference;
+            if(leftright>=0){
+            box.style.paddingTop = `${topbottom}px`;
+            }
+            else{
+                topbottom = 0;
+            }
+        }
     }
 </script>
 </html>
